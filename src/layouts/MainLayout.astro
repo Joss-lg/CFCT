@@ -1,0 +1,39 @@
+---
+import '../styles/global.css';
+import Navbar from '../components/Navbar.astro';
+interface Props { title: string; }
+const { title } = Astro.props;
+---
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title} | CFC Tlapala</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-[#02040a] text-white font-['Inter'] antialiased overflow-x-hidden">
+    <Navbar />
+
+    <div class="fixed top-0 left-0 w-full h-full z-[-1]">
+        <div class="absolute top-[-10%] left-[-10%] w-[600px] h-[600px] bg-blue-900/20 blur-[150px] rounded-full"></div>
+        <div class="absolute bottom-[-10%] right-[-10%] w-[600px] h-[600px] bg-cyan-900/10 blur-[150px] rounded-full"></div>
+    </div>
+
+    <main>
+        <slot />
+    </main>
+
+    <footer class="py-10 text-center border-t border-white/5 opacity-50 text-[10px] tracking-[0.3em] uppercase">
+        © 2026 Centro Familiar Cristiano Tlapala • Design by Josue
+    </footer>
+</body>
+</html>
+
+<style is:global>
+    h1, h2, h3 { font-family: 'Bebas Neue', sans-serif; }
+    /* Scrollbar minimalista */
+    ::-webkit-scrollbar { width: 5px; }
+    ::-webkit-scrollbar-track { background: #02040a; }
+    ::-webkit-scrollbar-thumb { background: #1e3a8a; border-radius: 5px; }
+</style>
